@@ -1,10 +1,12 @@
 <?php
-require("conn.php");
+require_once('ReplyModel.php');
 
-$now = time();
-mysql_query(
-	"INSERT INTO reply (content, create_time) VALUES ('$_POST[content]', $now)");
+$reply = new Reply();
 
-mysql_close($conn);
+$reply->setContent($_POST['content']);
+$reply->setCreateTime(time());
+
+ReplyModel::add($reply);
+
 header("Location:index.php");
 ?>

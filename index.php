@@ -7,17 +7,17 @@
 <body>
 <ul>
 <?php
-require("conn.php");
+require_once('ReplyModel.php');
 
-$result = mysql_query('SELECT * FROM reply ORDER BY id DESC');
-while($row = mysql_fetch_array($result)) {
+$replies = ReplyModel::getAll();
+
+while (list($key, $reply) = each($replies)) {
 	echo '<li>';
-	echo $row['content'];
+	echo $reply->getContent();
 	echo '——';
-	echo strftime('%b %d %Y %X', $row['create_time']);
+	echo strftime('%b %d %Y %X', $reply->getCreateTime());
 	echo '</li>';
 }
-mysql_close();
 ?>
 </ul>
 
