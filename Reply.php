@@ -1,23 +1,17 @@
 <?php
-class Reply
-{
-	private $content;
-	private $createTime;
+require('Model.php');
 
-	public function getContent() {
-		return $this->content;
-	}
+class Reply extends Model {
+	protected function getTableName() {
+       return 'reply';
+    }
 
-	public function setContent($v) {
-		$this->content = $v;
-	}
-
-	public function getCreateTime() {
-		return $this->createTime;
-	}
-
-	public function setCreateTime($v) {
-		$this->createTime = $v;
-	}
+    protected function getRelationMap() {
+    	return array(
+        	'id' => 'Id',
+        	'content'=> 'Content',
+        	'create_time' => 'CreateTime'
+        );
+    }
 }
 ?>

@@ -8,11 +8,11 @@ class ReplyModel
 		$result = mysql_query('SELECT * FROM reply ORDER BY id DESC');
 		$replies = array();
 
-		while($row = mysql_fetch_array($result)) {
+		while ($row = mysql_fetch_array($result)) {
 			$reply = new Reply();
 
-			$reply->setContent($row['content']);
-			$reply->setCreateTime($row['create_time']);
+			$reply->load($row);
+			//print_r($reply);
 
 			//array_push($replies, $reply);
 			$replies[] = $reply;
