@@ -11,8 +11,10 @@ class ReplyModel
 		while($row = mysql_fetch_array($result)) {
 			$reply = new Reply();
 
+			$reply->setId($row['id']);
 			$reply->setContent($row['content']);
 			$reply->setCreateTime($row['create_time']);
+			//print_r($reply);
 
 			//array_push($replies, $reply);
 			$replies[] = $reply;

@@ -1,6 +1,8 @@
 <?php
-class Reply
-{
+require('Model.php');
+
+class Reply extends Model {
+	/*
 	private $content;
 	private $createTime;
 
@@ -19,5 +21,16 @@ class Reply
 	public function setCreateTime($v) {
 		$this->createTime = $v;
 	}
+	*/
+	protected  function getTableName() {
+       return "reply";
+    }
+    protected function getMap() {
+        return array(
+        	'id' => Id,
+        	'content'=> Content,
+        	'create_time' => CreateTime
+        );
+    }
 }
 ?>
