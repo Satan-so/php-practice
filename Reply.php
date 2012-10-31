@@ -6,7 +6,7 @@ class Reply extends Model {
        return 'reply';
     }
 
-    protected function getRelationMap() {
+    protected function getMap() {
     	return array(
         	'id' => 'Id',
         	'content'=> 'Content',

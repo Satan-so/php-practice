@@ -4,11 +4,11 @@ abstract class Model {
 	protected $map;
 
 	abstract protected function getTableName();
-	abstract protected function getRelationMap();
+	abstract protected function getMap();
 
 	public function __construct() {
 		$this->tableName = $this->getTableName();
-		$this->map = $this->getRelationMap();
+		$this->map = $this->getMap();
 	}
 
 	public function __call($method, $param) {
